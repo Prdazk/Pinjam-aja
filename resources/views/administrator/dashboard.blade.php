@@ -4,119 +4,213 @@
 @section('description', 'Halaman Beranda')
 
 @section('content')
-<section class="row">
-  <div class="col-12 col-lg-9">
-    <div class="row">
-      <div class="col-6 col-lg-4 col-md-6">
-        <div class="card">
-          <a href="{{ route('administrators.users.index') }}">
-            <div class="card-body px-4 py-4-5">
-              <div class="row">
-                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
-                  <div class="stats-icon blue mb-2">
-                    <i class="iconly-boldProfile"></i>
-                  </div>
+
+<div class="container-fluid">
+
+{{-- STATISTIK --}}
+<div class="row g-4 mb-4">
+
+    {{-- ADMIN --}}
+    <div class="col-12 col-md-4">
+        <a href="{{ route('administrators.users.index') }}"
+           class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Admin</p>
+                            <h2 class="fw-bold mb-0">
+                                {{ $counts['administrator'] }}
+                            </h2>
+                        </div>
+
+                        <div class="stats-icon blue">
+                            <i class="iconly-boldProfile"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                  <h6 class="text-muted font-semibold">Total Administrator</h6>
-                  <h6 class="font-extrabold mb-0">{{ $counts['administrator'] }}</h6>
-                </div>
-              </div>
             </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-4 col-md-6">
-        <div class="card">
-          <a href="{{ route('administrators.students.index') }}">
-            <div class="card-body px-4 py-4-5">
-              <div class="row">
-                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
-                  <div class="stats-icon green mb-2">
-                    <i class="iconly-boldProfile"></i>
-                  </div>
+        </a>
+    </div>
+
+    {{-- SISWA --}}
+    <div class="col-12 col-md-4">
+        <a href="{{ route('administrators.students.index') }}"
+           class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Siswa</p>
+                            <h2 class="fw-bold mb-0">
+                                {{ $counts['student'] }}
+                            </h2>
+                        </div>
+
+                        <div class="stats-icon green">
+                            <i class="iconly-boldProfile"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                  <h6 class="text-muted font-semibold">Total Mahasiswa</h6>
-                  <h6 class="font-extrabold mb-0">{{ $counts['student'] }}</h6>
-                </div>
-              </div>
             </div>
-          </a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-4 col-md-6">
-        <div class="card">
-          <a href="{{ route('administrators.commodities.index') }}">
-            <div class="card-body px-4 py-4-5">
-              <div class="row">
-                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
-                  <div class="stats-icon red mb-2">
-                    <i class="iconly-boldBookmark"></i>
-                  </div>
+        </a>
+    </div>
+
+    {{-- KOMODITAS --}}
+    <div class="col-12 col-md-4">
+        <a href="{{ route('administrators.commodities.index') }}"
+           class="text-decoration-none">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted mb-2">Total Komoditas</p>
+                            <h2 class="fw-bold mb-0">
+                                {{ $counts['commodity'] }}
+                            </h2>
+                        </div>
+
+                        <div class="stats-icon red">
+                            <i class="iconly-boldBookmark"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                  <h6 class="text-muted font-semibold">Total Komoditas</h6>
-                  <h6 class="font-extrabold mb-0">{{ $counts['commodity'] }}</h6>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+
+{{-- KONTEN UTAMA --}}
+<div class="row g-4">
+
+    {{-- GRAFIK --}}
+    <div class="col-12 col-lg-8">
+        <div class="card h-100 shadow-sm">
+
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h4 class="mb-1">Data Peminjaman</h4>
+                        <small class="text-muted">
+                            Grafik peminjaman berdasarkan tahun
+                        </small>
+                    </div>
                 </div>
-              </div>
             </div>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h4 id="card-chart-borrowing-title">Peminjaman Tahun Ini</h4>
-            <div class="mb-3">
-              <label for="year" class="form-label">Isi Tahun:</label>
-              <input type="number" id="year" placeholder="Masukan tahun.." value="{{ date('Y') }}" class="form-control">
-              <div class="form-text">Tekan tombol `Enter` untuk menampilkan grafik berdasarkan tahun yang dipilih.</div>
+
+            <div class="card-body">
+
+                <div class="mb-4">
+                    <label for="year" class="form-label fw-bold">
+                        Pilih Tahun
+                    </label>
+
+                    <input
+                        type="number"
+                        id="year"
+                        value="{{ date('Y') }}"
+                        placeholder="Masukkan tahun..."
+                        class="form-control"
+                    >
+
+                    <small class="text-muted">
+                        Tekan <strong>Enter</strong> untuk menampilkan
+                        data berdasarkan tahun.
+                    </small>
+                </div>
+
+                <div id="chart-borrowing-by-year"></div>
+
             </div>
-          </div>
-          <div class="card-body">
-            <div id="chart-borrowing-by-year"></div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="col-12 col-lg-3">
-    <div class="card">
-      <div class="card-body py-4 px-4">
-        <div class="d-flex align-items-center">
-          <div class=" ms-3 name">
-            <h5 class="font-bold">{{ auth('administrator')->user()->name }}</h5>
-            <h6 class="text-muted mb-0">{{ auth('administrator')->user()->email }}</h6>
-          </div>
+
+
+    {{-- SIDEBAR --}}
+    <div class="col-12 col-lg-4">
+
+        {{-- PROFIL ADMIN --}}
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+
+                <div class="d-flex align-items-center">
+                    <div class="stats-icon blue me-3">
+                        <i class="iconly-boldProfile"></i>
+                    </div>
+
+                    <div>
+                        <p class="text-muted mb-1">
+                            Administrator
+                        </p>
+
+                        <h5 class="fw-bold mb-1">
+                            {{ auth('administrator')->user()->name }}
+                        </h5>
+
+                        <small class="text-muted">
+                            {{ auth('administrator')->user()->email }}
+                        </small>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
+
+
+        {{-- SISWA TERBARU --}}
+        <div class="card shadow-sm">
+
+            <div class="card-header">
+                <h4 class="mb-0">
+                    Siswa Terbaru
+                </h4>
+            </div>
+
+            <div class="card-content">
+
+                @foreach ($latestRegisteredStudents as $student)
+
+                    <div class="d-flex align-items-center px-4 py-3 border-bottom">
+
+                        <div class="stats-icon green me-3">
+                            <i class="iconly-boldProfile"></i>
+                        </div>
+
+                        <div>
+                            <h6 class="fw-bold mb-1">
+                                {{ $student->name }}
+                            </h6>
+
+                            <small class="text-muted">
+                                {{ $student->email }}
+                            </small>
+                        </div>
+
+                    </div>
+
+                @endforeach
+
+                <div class="p-4">
+
+                    <a href="{{ route('administrators.students.index') }}"
+                       class="btn btn-primary w-100">
+                        Lihat Semua Siswa
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
     </div>
-    <div class="card">
-      <div class="card-header">
-        <h4>Mahasiswa Yang Baru Terdaftar</h4>
-      </div>
-      <div class="card-content pb-4">
-        @foreach ($latestRegisteredStudents as $student)
-        <div class="recent-message d-flex px-4 py-3">
-          <div class="name ms-4">
-            <h5 class="mb-1">{{ $student->name }}</h5>
-            <h6 class="text-muted mb-0">{{ $student->email }}</h6>
-          </div>
-        </div>
-        @endforeach
-        <div class="px-4">
-          <a href="{{ route('administrators.students.index') }}"
-            class="btn btn-block btn-xl btn-outline-primary font-bold mt-3">
-            Daftar Mahasiswa
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+</div>
+```
+
+</div>
+
 @endsection
 
 @push('script')

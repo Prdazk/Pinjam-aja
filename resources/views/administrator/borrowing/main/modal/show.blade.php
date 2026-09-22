@@ -1,137 +1,303 @@
+```blade
 <div class="modal fade" id="detailBorrowingModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5">Detail Peminjaman</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content border-0 shadow">
+
+      {{-- HEADER --}}
+      <div class="modal-header bg-dark text-white">
+
+        <div>
+          <h5 class="modal-title mb-1">
+            <i class="bi bi-eye-fill me-2"></i>
+            Detail Peminjaman
+          </h5>
+
+          <small class="text-white-50">
+            Informasi lengkap data mahasiswa dan peminjaman
+          </small>
+        </div>
+
+        <button type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close">
+        </button>
+
       </div>
-      <div class="modal-body">
-        <div class="row">
+
+      {{-- BODY --}}
+      <div class="modal-body p-4">
+
+        <div class="row g-4">
+
+          {{-- DATA MAHASISWA --}}
           <div class="col-md-12 col-lg-6">
-            <div class="alert alert-primary">
-              Data di bawah adalah detail data mahasiswa.
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Nomor Identitas Mahasiswa</label>
-                  <input class="form-control" id="student_identification_number" disabled>
-                </div>
-              </div>
-              <div class="col-md-12 col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Nama Mahasiswa</label>
-                  <input class="form-control" id="student_name" disabled>
-                </div>
+
+            <div class="alert alert-primary border-0 shadow-sm">
+              <i class="bi bi-person-fill me-2"></i>
+              <strong>Data Mahasiswa</strong>
+
+              <div class="small mt-1">
+                Informasi mahasiswa yang melakukan peminjaman.
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-6 col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Program Studi</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-bookmarks-fill"></i></span>
-                    <input class="form-control" id="program_study_name" disabled>
-                  </div>
+            {{-- IDENTITAS & NAMA --}}
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">
+                  Nomor Identitas Mahasiswa
+                </label>
+
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-card-text text-primary"></i>
+                  </span>
+
+                  <input
+                    class="form-control bg-light"
+                    id="student_identification_number"
+                    disabled>
                 </div>
               </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Kelas</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-building-fill"></i></span>
-                    <input class="form-control" id="school_class_name" disabled>
-                  </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-semibold text-dark">
+                  Nama Mahasiswa
+                </label>
+
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-person-fill text-primary"></i>
+                  </span>
+
+                  <input
+                    class="form-control bg-light"
+                    id="student_name"
+                    disabled>
                 </div>
               </div>
+
             </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mb-3">
-                  <label class="form-label">Nomor Handphone</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-telephone-fill"></i></span>
-                    <input class="form-control" id="student_phone_number" disabled>
-                  </div>
+            {{-- PROGRAM STUDI & KELAS --}}
+            <div class="row g-3 mt-1">
+
+              <div class="col-md-6">
+
+                <label class="form-label fw-semibold text-dark">
+                  Program Studi
+                </label>
+
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-bookmarks-fill text-primary"></i>
+                  </span>
+
+                  <input
+                    class="form-control bg-light"
+                    id="program_study_name"
+                    disabled>
                 </div>
+
               </div>
+
+              <div class="col-md-6">
+
+                <label class="form-label fw-semibold text-dark">
+                  Kelas
+                </label>
+
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-building-fill text-primary"></i>
+                  </span>
+
+                  <input
+                    class="form-control bg-light"
+                    id="school_class_name"
+                    disabled>
+                </div>
+
+              </div>
+
             </div>
+
+            {{-- NOMOR HANDPHONE --}}
+            <div class="mt-3">
+
+              <label class="form-label fw-semibold text-dark">
+                Nomor Handphone
+              </label>
+
+              <div class="input-group">
+                <span class="input-group-text bg-light">
+                  <i class="bi bi-telephone-fill text-success"></i>
+                </span>
+
+                <input
+                  class="form-control bg-light"
+                  id="student_phone_number"
+                  disabled>
+              </div>
+
+            </div>
+
           </div>
 
+          {{-- DATA PEMINJAMAN --}}
           <div class="col-md-12 col-lg-6">
-            <div class="alert alert-primary">
-              Data di bawah adalah detail data peminjaman.
-            </div>
-            <div class="row">
-              <div class="col-md-12 col-lg-12">
-                <div class="mb-3">
-                  <label class="form-label">Nama Komoditas</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-collection-fill"></i></span>
-                    <input class="form-control" id="commodity_name" disabled>
-                  </div>
-                </div>
+
+            <div class="alert alert-success border-0 shadow-sm">
+              <i class="bi bi-book-fill me-2"></i>
+              <strong>Data Peminjaman</strong>
+
+              <div class="small mt-1">
+                Informasi lengkap mengenai peminjaman.
               </div>
             </div>
 
-            <div class="row">
-              <div class="col-md-12 col-lg-12">
-                <div class="mb-3">
-                  <label class="form-label">Tanggal</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-calendar-fill"></i></span>
-                    <input class="form-control" id="date" disabled>
-                  </div>
-                </div>
+            {{-- KOMODITAS --}}
+            <div class="mb-3">
+
+              <label class="form-label fw-semibold text-dark">
+                Nama Komoditas
+              </label>
+
+              <div class="input-group">
+                <span class="input-group-text bg-light">
+                  <i class="bi bi-collection-fill text-success"></i>
+                </span>
+
+                <input
+                  class="form-control bg-light"
+                  id="commodity_name"
+                  disabled>
               </div>
+
             </div>
 
-            <div class="row">
-              <div class="col-md-6 col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Jam Pinjam</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
-                    <input class="form-control" id="time_start" disabled>
-                  </div>
-                </div>
+            {{-- TANGGAL --}}
+            <div class="mb-3">
+
+              <label class="form-label fw-semibold text-dark">
+                Tanggal
+              </label>
+
+              <div class="input-group">
+                <span class="input-group-text bg-light">
+                  <i class="bi bi-calendar-fill text-primary"></i>
+                </span>
+
+                <input
+                  class="form-control bg-light"
+                  id="date"
+                  disabled>
               </div>
-              <div class="col-md-6 col-lg-6">
-                <div class="mb-3">
-                  <label class="form-label">Jam Kembali</label>
-                  <div class="input-group">
-                    <span class="d-block input-group-text"><i class="bi bi-clock-fill"></i></span>
-                    <input class="form-control" id="time_end" disabled>
-                  </div>
-                </div>
-              </div>
+
             </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mb-3">
-                  <label class="form-label">Status</label>
-                  <input class="form-control" id="is_returned" disabled>
+            {{-- JAM --}}
+            <div class="row g-3">
+
+              <div class="col-md-6">
+
+                <label class="form-label fw-semibold text-dark">
+                  Jam Pinjam
+                </label>
+
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-clock-fill text-primary"></i>
+                  </span>
+
+                  <input
+                    class="form-control bg-light"
+                    id="time_start"
+                    disabled>
                 </div>
+
               </div>
+
+              <div class="col-md-6">
+
+                <label class="form-label fw-semibold text-dark">
+                  Jam Kembali
+                </label>
+
+                <div class="input-group">
+                  <span class="input-group-text bg-light">
+                    <i class="bi bi-clock-fill text-success"></i>
+                  </span>
+
+                  <input
+                    class="form-control bg-light"
+                    id="time_end"
+                    disabled>
+                </div>
+
+              </div>
+
             </div>
 
-            <div class="row">
-              <div class="col-md-12">
-                <div class="mb-3">
-                  <label class="form-label">Catatan</label>
-                  <textarea class="form-control" id="note" disabled style="height: 100px"></textarea>
-                </div>
+            {{-- STATUS --}}
+            <div class="mt-3">
+
+              <label class="form-label fw-semibold text-dark">
+                Status
+              </label>
+
+              <div class="input-group">
+                <span class="input-group-text bg-light">
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                </span>
+
+                <input
+                  class="form-control bg-light"
+                  id="is_returned"
+                  disabled>
               </div>
+
             </div>
+
+            {{-- CATATAN --}}
+            <div class="mt-3">
+
+              <label class="form-label fw-semibold text-dark">
+                Catatan
+              </label>
+
+              <textarea
+                class="form-control bg-light"
+                id="note"
+                disabled
+                style="height: 100px"></textarea>
+
+            </div>
+
           </div>
+
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary close-button" data-bs-dismiss="modal">Tutup</button>
-        </div>
+
       </div>
+
+      {{-- FOOTER --}}
+      <div class="modal-footer bg-light">
+
+        <button
+          type="button"
+          class="btn btn-secondary close-button"
+          data-bs-dismiss="modal">
+
+          <i class="bi bi-x-lg me-1"></i>
+          Tutup
+
+        </button>
+
+      </div>
+
     </div>
   </div>
 </div>
+```
